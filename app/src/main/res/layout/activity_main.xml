@@ -9,28 +9,32 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <fragment
-        android:id="@+id/map1"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        class="com.baidu.mapapi.map.SupportMapFragment" />
-    <fragment
-        android:id="@+id/map2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        class="com.baidu.mapapi.map.SupportMapFragment" />
-
-
-
-
-    <!--    <com.baidu.mapapi.map.MapView-->
-<!--        android:id="@+id/bmapView"-->
+<!--    <fragment-->
+<!--        android:id="@+id/map1"-->
 <!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:clickable="true" />-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:layout_weight="1"-->
+<!--        class="com.baidu.mapapi.map.SupportMapFragment" />-->
+<!--    -->
+<!--    -->
+<!--    <fragment-->
+<!--        android:id="@+id/map2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:layout_weight="1"-->
+<!--        class="com.baidu.mapapi.map.SupportMapFragment" />-->
+
+
+
+
+        <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true" />
+
+
 
 </LinearLayout>
