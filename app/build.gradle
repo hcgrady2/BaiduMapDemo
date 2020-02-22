@@ -31,6 +31,11 @@ android {
         }
 
 
+        // 避免"64K 引用限制"
+        multiDexEnabled true
+        // 导航SDK内部使用了annotationProcessor，需要添加下面代码，防止编译异常
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
+
     }
 
     sourceSets {
@@ -63,6 +68,9 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    useLibrary 'org.apache.http.legacy'
+
 }
 
 dependencies {
@@ -76,6 +84,9 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
     implementation 'pub.devrel:easypermissions:2.0.1'
+
+    compile 'com.android.support:recyclerview-v7:27.0.2'
+
 
 
 }
