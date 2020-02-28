@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,41 +9,11 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-<!--    <fragment-->
-<!--        android:id="@+id/map1"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_margin="5dp"-->
-<!--        android:layout_weight="1"-->
-<!--        class="com.baidu.mapapi.map.SupportMapFragment" />-->
-<!--    -->
-<!--    -->
-<!--    <fragment-->
-<!--        android:id="@+id/map2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_margin="5dp"-->
-<!--        android:layout_weight="1"-->
-<!--        class="com.baidu.mapapi.map.SupportMapFragment" />-->
-
-
-
-
-        <com.baidu.mapapi.map.MapView
-        android:id="@+id/bmapView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true" />
-
-
 
         <Button
-            android:id="@+id/button"
-            android:text="地图操作"
+            android:id="@+id/btn_lbs_demo"
+            android:text="百度地图基础功能使用示例"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+</LinearLayout>
