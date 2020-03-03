@@ -16,4 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+
+        <Button
+            android:id="@+id/btn_nav_demo"
+            android:text="百度地图导航 Demo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
 </LinearLayout>

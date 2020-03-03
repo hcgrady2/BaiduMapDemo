@@ -164,7 +164,7 @@ public class OverlayDemo extends Activity {
             .zIndex(7);
         if (animationBox.isChecked()) {
             // 生长动画
-            ooC.animateType(MarkerAnimateType.grow);
+            ooC.animateType(MarkerAnimateType.jump);
         }
         mMarkerC = (Marker) (mBaiduMap.addOverlay(ooC));
         ArrayList<BitmapDescriptor> giflist = new ArrayList<BitmapDescriptor>();
