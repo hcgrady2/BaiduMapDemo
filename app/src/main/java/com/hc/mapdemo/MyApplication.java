@@ -1,14 +1,30 @@
 package com.hc.mapdemo;
 
 import android.app.Application;
+import android.app.Service;
+import android.os.Vibrator;
 
 import com.baidu.mapapi.CoordType;
 import com.baidu.mapapi.SDKInitializer;
+import com.hc.mapdemo.Location.service.LocationService;
 
 public class MyApplication extends Application {
+
+
+    //百度地图定位使用
+    public LocationService locationService;
+    public Vibrator mVibrator;
+
+
     @Override
     public void onCreate() {
         super.onCreate();
+
+
+        locationService = new LocationService(getApplicationContext());
+        mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
+
+
 
         //在使用SDK各组件之前初始化context信息，传入ApplicationContext
         SDKInitializer.initialize(this);

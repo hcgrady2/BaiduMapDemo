@@ -7,17 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-import com.baidu.mapapi.cloud.BoundSearchInfo;
-import com.baidu.mapapi.cloud.CloudListener;
-import com.baidu.mapapi.cloud.CloudManager;
-import com.baidu.mapapi.cloud.CloudPoiInfo;
-import com.baidu.mapapi.cloud.CloudRgcInfo;
-import com.baidu.mapapi.cloud.CloudRgcResult;
-import com.baidu.mapapi.cloud.CloudSearchResult;
-import com.baidu.mapapi.cloud.DetailSearchInfo;
-import com.baidu.mapapi.cloud.DetailSearchResult;
-import com.baidu.mapapi.cloud.LocalSearchInfo;
-import com.baidu.mapapi.cloud.NearbySearchInfo;
+
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -34,13 +24,13 @@ import com.baidu.mapapi.model.LatLngBounds.Builder;
 
 import com.hc.mapdemo.R;;
 
-public class CloudSearchActivity extends Activity implements CloudListener {
+public class CloudSearchActivity extends Activity   {
 
     private static final String LTAG = CloudSearchActivity.class.getSimpleName();
     private MapView mMapView;
     private BaiduMap mBaiduMap;
 
-    private CloudManager mCloudManager;
+   // private CloudManager mCloudManager;
 
     @Override
     protected void onCreate(Bundle icicle) {
@@ -49,9 +39,9 @@ public class CloudSearchActivity extends Activity implements CloudListener {
 
         //CloudManager.getInstance().init(CloudSearchActivity.this);
         /* 初始化跟注册监听分开，确保资源正确释放，防止内存泄露，请使用新接口 */
-        mCloudManager = CloudManager.getInstance();
-        mCloudManager.init();
-        mCloudManager.registerListener(CloudSearchActivity.this);
+//        mCloudManager = CloudManager.getInstance();
+//        mCloudManager.init();
+//        mCloudManager.registerListener(CloudSearchActivity.this);
 
         mMapView = (MapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
@@ -59,59 +49,87 @@ public class CloudSearchActivity extends Activity implements CloudListener {
                 new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        LocalSearchInfo info = new LocalSearchInfo();
-                        info.ak = "B266f735e43ab207ec152deff44fec8b";
-                        info.geoTableId = 31869;
-                        info.tags = "";
-                        info.q = "天安门";
-                        info.region = "北京市";
-                        mCloudManager.localSearch(info);
+
+
+//                        LocalSearchInfo info = new LocalSearchInfo();
+//                        info.ak = "B266f735e43ab207ec152deff44fec8b";
+//                        info.geoTableId = 31869;
+//                        info.tags = "";
+//                        info.q = "天安门";
+//                        info.region = "北京市";
+//                        mCloudManager.localSearch(info);
+//
+//
                     }
                 });
         findViewById(R.id.nearbySearch).setOnClickListener(
                 new OnClickListener() {
+                    @Override
                     public void onClick(View v) {
-                        NearbySearchInfo info = new NearbySearchInfo();
-                        info.ak = "D9ace96891048231e8777291cda45ca0";
-                        info.geoTableId = 32038;
-                        info.radius = 30000;
-                        info.location = "116.403689,39.914957";
-                        mCloudManager.nearbySearch(info);
+
+
+//                        NearbySearchInfo info = new NearbySearchInfo();
+//                        info.ak = "D9ace96891048231e8777291cda45ca0";
+//                        info.geoTableId = 32038;
+//                        info.radius = 30000;
+//                        info.location = "116.403689,39.914957";
+//                        mCloudManager.nearbySearch(info);
+//
+//
                     }
                 });
 
         findViewById(R.id.boundsSearch).setOnClickListener(
                 new OnClickListener() {
+                    @Override
                     public void onClick(View v) {
-                        BoundSearchInfo info = new BoundSearchInfo();
-                        info.ak = "B266f735e43ab207ec152deff44fec8b";
-                        info.geoTableId = 31869;
-                        info.q = "天安门";
-                        info.bound = "116.401663,39.913961;116.406529,39.917396";
-                        mCloudManager.boundSearch(info);
+
+
+//                        BoundSearchInfo info = new BoundSearchInfo();
+//                        info.ak = "B266f735e43ab207ec152deff44fec8b";
+//                        info.geoTableId = 31869;
+//                        info.q = "天安门";
+//                        info.bound = "116.401663,39.913961;116.406529,39.917396";
+//                        mCloudManager.boundSearch(info);
+//
+//
+
                     }
                 });
         findViewById(R.id.detailsSearch).setOnClickListener(
                 new OnClickListener() {
+                    @Override
                     public void onClick(View v) {
-                        DetailSearchInfo info = new DetailSearchInfo();
-                        info.ak = "B266f735e43ab207ec152deff44fec8b";
-                        info.geoTableId = 31869;
-                        //info.uid = 18622266;
-                        info.poiId = "18622266"; //考虑到数据的溢出，请使用podId代替uid。
-                        mCloudManager.detailSearch(info);
+//
+//
+//                        DetailSearchInfo info = new DetailSearchInfo();
+//                        info.ak = "B266f735e43ab207ec152deff44fec8b";
+//                        info.geoTableId = 31869;
+//                        //info.uid = 18622266;
+//                        info.poiId = "18622266"; //考虑到数据的溢出，请使用podId代替uid。
+//                        mCloudManager.detailSearch(info);
+//
+//
+
                     }
                 });
         findViewById(R.id.cloudRgc).setOnClickListener(
                 new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(CloudSearchActivity.this, "请开发者使用自己AK下的geo_table", Toast.LENGTH_SHORT).show();
-                        CloudRgcInfo info = new CloudRgcInfo();
-                        info.geoTableId = 145801;  //注：请开发者使用自己AK下的geo_table
-                        info.location = "40.047699,116.313718";
-                        mCloudManager.rgcSearch(info);
+
+
+
+//                        Toast.makeText(CloudSearchActivity.this, "请开发者使用自己AK下的geo_table", Toast.LENGTH_SHORT).show();
+//                        CloudRgcInfo info = new CloudRgcInfo();
+//                        info.geoTableId = 145801;  //注：请开发者使用自己AK下的geo_table
+//                        info.location = "40.047699,116.313718";
+//                        mCloudManager.rgcSearch(info);
+//
+
                     }
+
+
                 }
         );
     }
@@ -121,9 +139,9 @@ public class CloudSearchActivity extends Activity implements CloudListener {
         super.onDestroy();
         mMapView.onDestroy();
         /* 释放监听者 */
-        mCloudManager.unregisterListener();
-        mCloudManager.destroy();
-        mCloudManager= null;
+//        mCloudManager.unregisterListener();
+//        mCloudManager.destroy();
+//        mCloudManager= null;
     }
 
     @Override
@@ -138,80 +156,83 @@ public class CloudSearchActivity extends Activity implements CloudListener {
         mMapView.onResume();
     }
 
-    public void onGetDetailSearchResult(DetailSearchResult result, int error) {
-        if (result != null) {
-            if (result.poiInfo != null) {
-                Toast.makeText(CloudSearchActivity.this, result.poiInfo.title,
-                        Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(CloudSearchActivity.this,
-                        "status:" + result.status, Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
+//    public void onGetDetailSearchResult(DetailSearchResult result, int error) {
+//        if (result != null) {
+//            if (result.poiInfo != null) {
+//                Toast.makeText(CloudSearchActivity.this, result.poiInfo.title,
+//                        Toast.LENGTH_SHORT).show();
+//            } else {
+//                Toast.makeText(CloudSearchActivity.this,
+//                        "status:" + result.status, Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
+//
+//    public void onGetSearchResult(CloudSearchResult result, int error) {
+//        if (result != null && result.poiList != null
+//                && result.poiList.size() > 0) {
+//            Log.d(LTAG, "onGetSearchResult, result length: " + result.poiList.size());
+//            mBaiduMap.clear();
+//            BitmapDescriptor bd = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
+//            LatLng ll;
+//            LatLngBounds.Builder builder = new Builder();
+//            for (CloudPoiInfo info : result.poiList) {
+//                ll = new LatLng(info.latitude, info.longitude);
+//                OverlayOptions oo = new MarkerOptions().icon(bd).position(ll);
+//                mBaiduMap.addOverlay(oo);
+//                builder.include(ll);
+//            }
+//            LatLngBounds bounds = builder.build();
+//            MapStatusUpdate u = MapStatusUpdateFactory.newLatLngBounds(bounds);
+//            mBaiduMap.animateMapStatus(u);
+//        }
+//    }
+//
+//    @Override
+//    public void onGetCloudRgcResult(CloudRgcResult result, int error) {
+//        if (result != null && error == 0) {
+//            if (result.status == 0) {
+//                BitmapDescriptor bd = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
+//                mBaiduMap.clear();
+//                LatLng ll;
+//                LatLngBounds.Builder builder = new Builder();
+//                if (result.customPois != null && result.customPois.size() > 0) {
+//                    for (int i = 0; i < result.customPois.size(); i++) {
+//                        CloudPoiInfo info = result.customPois.get(i);
+//                        ll = new LatLng(info.latitude, info.longitude);
+//                        OverlayOptions oo = new MarkerOptions().icon(bd).position(ll);
+//                        mBaiduMap.addOverlay(oo);
+//                        TextOptions too = new TextOptions().text(info.title).position(ll).bgColor(0xffff0000)
+//                                .fontSize(30);
+//                        mBaiduMap.addOverlay(too);
+//                        builder.include(ll);
+//                    }
+//                }
+//
+//                try {
+//                    OverlayOptions inOverlay = new MarkerOptions().icon(bd).position(result.location);
+//                    Marker marker = (Marker) mBaiduMap.addOverlay(inOverlay);
+//
+//                    builder.include(result.location);
+//                    TextOptions txo = new TextOptions().text(result.customLocationDescription).position(result
+//                            .location).bgColor(0xffff0000).fontSize(30);
+//                    mBaiduMap.addOverlay(txo);
+//
+//                    LatLngBounds bounds = builder.build();
+//                    MapStatusUpdate u = MapStatusUpdateFactory.newLatLngBounds(bounds);
+//
+//                    mBaiduMap.animateMapStatus(u);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            } else {
+//                Toast.makeText(CloudSearchActivity.this,
+//                        "status:" + result.status, Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    }
+//
+//
 
-    public void onGetSearchResult(CloudSearchResult result, int error) {
-        if (result != null && result.poiList != null
-                && result.poiList.size() > 0) {
-            Log.d(LTAG, "onGetSearchResult, result length: " + result.poiList.size());
-            mBaiduMap.clear();
-            BitmapDescriptor bd = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
-            LatLng ll;
-            LatLngBounds.Builder builder = new Builder();
-            for (CloudPoiInfo info : result.poiList) {
-                ll = new LatLng(info.latitude, info.longitude);
-                OverlayOptions oo = new MarkerOptions().icon(bd).position(ll);
-                mBaiduMap.addOverlay(oo);
-                builder.include(ll);
-            }
-            LatLngBounds bounds = builder.build();
-            MapStatusUpdate u = MapStatusUpdateFactory.newLatLngBounds(bounds);
-            mBaiduMap.animateMapStatus(u);
-        }
-    }
-
-    @Override
-    public void onGetCloudRgcResult(CloudRgcResult result, int error) {
-        if (result != null && error == 0) {
-            if (result.status == 0) {
-                BitmapDescriptor bd = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
-                mBaiduMap.clear();
-                LatLng ll;
-                LatLngBounds.Builder builder = new Builder();
-                if (result.customPois != null && result.customPois.size() > 0) {
-                    for (int i = 0; i < result.customPois.size(); i++) {
-                        CloudPoiInfo info = result.customPois.get(i);
-                        ll = new LatLng(info.latitude, info.longitude);
-                        OverlayOptions oo = new MarkerOptions().icon(bd).position(ll);
-                        mBaiduMap.addOverlay(oo);
-                        TextOptions too = new TextOptions().text(info.title).position(ll).bgColor(0xffff0000)
-                                .fontSize(30);
-                        mBaiduMap.addOverlay(too);
-                        builder.include(ll);
-                    }
-                }
-
-                try {
-                    OverlayOptions inOverlay = new MarkerOptions().icon(bd).position(result.location);
-                    Marker marker = (Marker) mBaiduMap.addOverlay(inOverlay);
-
-                    builder.include(result.location);
-                    TextOptions txo = new TextOptions().text(result.customLocationDescription).position(result
-                            .location).bgColor(0xffff0000).fontSize(30);
-                    mBaiduMap.addOverlay(txo);
-
-                    LatLngBounds bounds = builder.build();
-                    MapStatusUpdate u = MapStatusUpdateFactory.newLatLngBounds(bounds);
-
-                    mBaiduMap.animateMapStatus(u);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else {
-                Toast.makeText(CloudSearchActivity.this,
-                        "status:" + result.status, Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 }
 

@@ -25,7 +25,6 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapsdkplatform.comapi.util.CustomMapStyleLoader;
 import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
 import com.hc.mapdemo.BaiduLBSDemo.map.BaseMapDemo;
 import com.hc.mapdemo.R;
@@ -140,8 +139,8 @@ public final class CustomMapPreview extends AppCompatActivity
         if (!TextUtils.isEmpty(mCustomStyleFileId) && mIsFirstReaderSuccess) {
             mIsFirstReaderSuccess = false;
             // 下载样式文件
-            CustomMapStyleLoader.getInstance().initCustomStyleFilePath(this.getApplicationContext());
-            CustomMapStyleLoader.getInstance().loadCustomMapStyleFile(mCustomStyleFileId, false);
+           // CustomMapStyleLoader.getInstance().initCustomStyleFilePath(this.getApplicationContext());
+            //CustomMapStyleLoader.getInstance().loadCustomMapStyleFile(mCustomStyleFileId, false);
         }
 
         mResultTextView.setText(text);
@@ -152,8 +151,11 @@ public final class CustomMapPreview extends AppCompatActivity
     private void registerLoadCustomStyleResultReceiver() {
         // 注册 SDK 广播监听者
         IntentFilter iFilter = new IntentFilter();
-        iFilter.addAction(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_SUCCESS);
-        iFilter.addAction(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_ERROR);
+       // iFilter.addAction(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_SUCCESS);
+       // iFilter.addAction(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_ERROR);
+
+
+
         iFilter.addAction(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
 
         mReceiver = new LoadCustomStyleResultReceiver();
@@ -203,20 +205,20 @@ public final class CustomMapPreview extends AppCompatActivity
             if (null == action) {
                 return;
             }
-
-            if (action.equals(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_SUCCESS)) {
-                // 调起MapFragmentDemo，展示个性化地图
-                startMapFragmentDemoForPreview();
-            } else {
-                int errorCode = intent.getIntExtra(SDKInitializer.SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_CODE, 0);
-                String errorMessage = intent.getStringExtra(SDKInitializer.SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE);
-
-                if (errorCode != loadCustomStyleErrorCode) {
-                    loadCustomStyleErrorCode = errorCode;
-                    Snackbar.make(mMainLayout, "Load style error: " + errorCode + "; " + errorMessage, Snackbar.LENGTH_LONG).show();
-                }
-                mIsFirstReaderSuccess = true;
-            }
+//
+//            if (action.equals(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_LOAD_CUSTOM_STYLE_SUCCESS)) {
+//                // 调起MapFragmentDemo，展示个性化地图
+//                startMapFragmentDemoForPreview();
+//            } else {
+//                int errorCode = intent.getIntExtra(SDKInitializer.SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_CODE, 0);
+//                String errorMessage = intent.getStringExtra(SDKInitializer.SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE);
+//
+//                if (errorCode != loadCustomStyleErrorCode) {
+//                    loadCustomStyleErrorCode = errorCode;
+//                    Snackbar.make(mMainLayout, "Load style error: " + errorCode + "; " + errorMessage, Snackbar.LENGTH_LONG).show();
+//                }
+//                mIsFirstReaderSuccess = true;
+//            }
         }
     }
 

@@ -24,5 +24,13 @@
             android:layout_height="wrap_content"/>
 
 
+        <Button
+            android:id="@+id/btn_location_demo"
+            android:text="百度地图定位 Demo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
 
 </LinearLayout>

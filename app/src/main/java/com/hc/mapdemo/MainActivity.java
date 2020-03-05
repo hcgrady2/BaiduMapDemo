@@ -63,6 +63,7 @@ import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.baidu.mapapi.utils.SpatialRelationUtil;
 import com.hc.mapdemo.BaiduLBSDemo.BMapApiDemoMain;
+import com.hc.mapdemo.Location.LocationMain;
 import com.hc.mapdemo.ONSDKDemo.ONSDKDemoMain;
 
 import java.io.File;
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     private static final String TAG = "MapStatus";
 
-    Button btn_baidu_lbs,btn_baidu_nav;
+    Button btn_baidu_lbs,btn_baidu_nav,btn_location_demo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,6 +112,10 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         btn_baidu_nav = findViewById(R.id.btn_nav_demo);
         btn_baidu_nav.setOnClickListener(this);
 
+
+
+        btn_location_demo = findViewById(R.id.btn_location_demo);
+        btn_location_demo.setOnClickListener(this);
 
     }
 
@@ -188,6 +193,20 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
                // Toast.makeText(this, "开始导航", Toast.LENGTH_SHORT).show();
                 break;
+
+
+
+            case R.id.btn_location_demo:
+
+                startActivity(new Intent(
+                        MainActivity.this, LocationMain.class
+                ));
+
+
+                // Toast.makeText(this, "开始导航", Toast.LENGTH_SHORT).show();
+                break;
+
+
 
 
             default:

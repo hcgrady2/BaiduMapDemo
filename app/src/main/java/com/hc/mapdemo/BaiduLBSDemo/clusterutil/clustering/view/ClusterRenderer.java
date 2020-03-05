@@ -5,7 +5,6 @@
 package com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.view;
 
 
-
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.Cluster;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.ClusterItem;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.ClusterManager;

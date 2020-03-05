@@ -25,6 +25,7 @@ import android.util.SparseArray;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 
+
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
@@ -37,7 +38,6 @@ import com.hc.mapdemo.BaiduLBSDemo.clusterutil.MarkerManager;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.Cluster;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.ClusterItem;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.ClusterManager;
-import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.view.ClusterRenderer;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.projection.Point;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.projection.SphericalMercatorProjection;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.ui.IconGenerator;
@@ -64,7 +64,7 @@ import static com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.algo.NonHierarc
  * The default view for a ClusterManager. Markers are animated in and out of clusters.
  */
 public class DefaultClusterRenderer<T extends ClusterItem> implements
-        ClusterRenderer<T> {
+          ClusterRenderer<T> {
     private static final boolean SHOULD_ANIMATE = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
     private final BaiduMap mMap;
     private final IconGenerator mIconGenerator;
@@ -164,8 +164,8 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements
     }
 
     private SquareTextView makeSquareTextView(Context context) {
-            SquareTextView squareTextView =
-                new     SquareTextView(context);
+         SquareTextView squareTextView =
+                new  SquareTextView(context);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         squareTextView.setLayoutParams(layoutParams);
@@ -324,6 +324,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements
                     new SphericalMercatorProjection(256 * Math.pow(2, Math.min(zoom, mZoom)));
         }
 
+        @Override
         @SuppressLint("NewApi")
         public void run() {
             if (clusters.equals(DefaultClusterRenderer.this.mClusters)) {
@@ -434,7 +435,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements
 
     @Override
     public void setOnClusterInfoWindowClickListener(ClusterManager
-                                                            .OnClusterInfoWindowClickListener<T> listener) {
+                                                                .OnClusterInfoWindowClickListener<T> listener) {
         mInfoWindowClickListener = listener;
     }
 
@@ -445,7 +446,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements
 
     @Override
     public void setOnClusterItemInfoWindowClickListener(ClusterManager
-                                                                .OnClusterItemInfoWindowClickListener<T> listener) {
+                                                                    .OnClusterItemInfoWindowClickListener<T> listener) {
         mItemInfoWindowClickListener = listener;
     }
 
@@ -627,7 +628,7 @@ public class DefaultClusterRenderer<T extends ClusterItem> implements
                 lock.lock();
                 return !(mCreateMarkerTasks.isEmpty() && mOnScreenCreateMarkerTasks.isEmpty()
                         && mOnScreenRemoveMarkerTasks.isEmpty() && mRemoveMarkerTasks.isEmpty()
-                        && mAnimationTasks.isEmpty());
+                                && mAnimationTasks.isEmpty());
             } finally {
                 lock.unlock();
             }

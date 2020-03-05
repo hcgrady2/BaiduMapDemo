@@ -17,6 +17,7 @@
     <!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <!-- 写外置存储。如果开发者使用了离线地图，并且数据写在外置存储区域，则需要申请该权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- 这个权限用于进行网络定位 -->
@@ -260,12 +261,6 @@
             android:label="@string/demo_name_indoor" >
         </activity>
         <activity
-            android:name=".BaiduLBSDemo.search.IndoorSearchDemo"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:label="@string/demo_name_indoorsearch" >
-        </activity>
-        <activity
             android:name=".BaiduLBSDemo.map.TrackShowDemo"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
@@ -339,6 +334,31 @@
 
 
 
+<!--        定位相关-->
+
+        <activity android:name=".Location.LocationMain"/>
+
+
+        <activity android:name=".Location.demo.LocationActivity"/>
+        <activity android:name=".Location.demo.LocationOption" />
+        <activity android:name=".Location.demo.LocationFilter" />
+        <activity android:name=".Location.demo.NotifyActivity" />
+        <activity android:name=".Location.demo.QuestActivity" />
+        <activity android:name=".Location.demo.LocationAutoNotify" />
+        <activity android:name=".Location.demo.IndoorLocationActivity" />
+        <activity android:name=".Location.demo.ForegroundActivity" />
+        <activity android:name=".Location.demo.GeoFenceMultipleActivity" />
+        <activity android:name=".Location.demo.CheckPermissionsActivity" />
+        <activity android:name=".Location.demo.IsHotWifiActivity" />
+        <activity android:name=".Location.demo.AssistLocationActivity" />
+        <activity android:name=".Location.demo.SceneLocationActivity" />
+        <activity android:name=".Location.demo.SignInSceneActivity" />
+        <activity android:name=".Location.demo.SportSceneActivity" />
+        <activity android:name=".Location.demo.TransportSceneActivity" />
+        <activity
+            android:name=".Location.demo.LocationNotifyActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
 
 
 

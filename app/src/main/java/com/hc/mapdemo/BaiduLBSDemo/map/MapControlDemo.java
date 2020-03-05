@@ -95,6 +95,7 @@ public class MapControlDemo extends Activity {
             /**
              * 单击地图
              */
+            @Override
             public void onMapClick(LatLng point) {
                 touchType = "单击地图";
                 currentPt = point;
@@ -104,17 +105,19 @@ public class MapControlDemo extends Activity {
             /**
              * 单击地图中的POI点
              */
-            public boolean onMapPoiClick(MapPoi poi) {
+            @Override
+            public void onMapPoiClick(MapPoi poi) {
                 touchType = "单击POI点";
                 currentPt = poi.getPosition();
                 updateMapState();
-                return false;
+                //return false;
             }
         });
         mBaiduMap.setOnMapLongClickListener(new OnMapLongClickListener() {
             /**
              * 长按地图
              */
+            @Override
             public void onMapLongClick(LatLng point) {
                 touchType = "长按";
                 currentPt = point;
@@ -125,6 +128,7 @@ public class MapControlDemo extends Activity {
             /**
              * 双击地图
              */
+            @Override
             public void onMapDoubleClick(LatLng point) {
                 touchType = "双击";
                 currentPt = point;
@@ -136,6 +140,7 @@ public class MapControlDemo extends Activity {
          * 地图状态发生变化
          */
         mBaiduMap.setOnMapStatusChangeListener(new OnMapStatusChangeListener() {
+            @Override
             public void onMapStatusChangeStart(MapStatus status) {
                 updateMapState();
             }
@@ -145,10 +150,12 @@ public class MapControlDemo extends Activity {
 
             }
 
+            @Override
             public void onMapStatusChangeFinish(MapStatus status) {
                 updateMapState();
             }
 
+            @Override
             public void onMapStatusChange(MapStatus status) {
                 updateMapState();
             }

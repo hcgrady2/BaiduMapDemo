@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2016 Baidu, Inc. All Rights Reserved.
  */
-package com.hc.mapdemo.BaiduLBSDemo.search;
+package com.hc.mapdemo.BaiduLBSDemo.searchroute;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,26 +13,26 @@ import android.widget.TextView;
 import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.MassTransitRouteLine;
+import com.hc.mapdemo.R;
 
 import java.util.List;
 
-import com.hc.mapdemo.R;;
 
 public class RouteLineAdapter extends BaseAdapter {
 
-    private List<? extends RouteLine> routeLines;
-    private LayoutInflater layoutInflater;
-    private Type mtype;
+    private List<? extends RouteLine> mRouteLines;
+    private LayoutInflater mLayoutInflater;
+    private Type mType;
 
     public RouteLineAdapter(Context context, List<?extends RouteLine> routeLines, Type type) {
-        this.routeLines = routeLines;
-        layoutInflater = LayoutInflater.from( context);
-        mtype = type;
+        this.mRouteLines = routeLines;
+        mLayoutInflater = LayoutInflater.from(context);
+        mType = type;
     }
 
     @Override
     public int getCount() {
-        return routeLines.size();
+        return mRouteLines.size();
     }
 
     @Override
@@ -49,7 +49,7 @@ public class RouteLineAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         NodeViewHolder holder;
         if (convertView == null) {
-            convertView = layoutInflater.inflate(R.layout.activity_transit_item, null);
+            convertView = mLayoutInflater.inflate(R.layout.activity_transit_item, null);
             holder = new NodeViewHolder();
             holder.name = (TextView) convertView.findViewById(R.id.transitName);
             holder.lightNum = (TextView) convertView.findViewById(R.id.lightNum);
@@ -59,43 +59,39 @@ public class RouteLineAdapter extends BaseAdapter {
             holder = (NodeViewHolder) convertView.getTag();
         }
 
-        switch (mtype) {
+        switch (mType) {
             case  TRANSIT_ROUTE:
             case WALKING_ROUTE:
             case BIKING_ROUTE:
                 holder.name.setText("路线" + (position + 1));
-                int time = routeLines.get(position).getDuration();
+                int time = mRouteLines.get(position).getDuration();
                 if ( time / 3600 == 0 ) {
                     holder.lightNum.setText( "大约需要：" + time / 60 + "分钟" );
                 } else {
                     holder.lightNum.setText( "大约需要：" + time / 3600 + "小时" + (time % 3600) / 60 + "分钟" );
                 }
-                holder.dis.setText("距离大约是：" + routeLines.get(position).getDistance() + "米");
+                holder.dis.setText("距离大约是：" + mRouteLines.get(position).getDistance() + "米");
                 break;
-
             case DRIVING_ROUTE:
-                DrivingRouteLine drivingRouteLine = (DrivingRouteLine) routeLines.get(position);
+                DrivingRouteLine drivingRouteLine = (DrivingRouteLine) mRouteLines.get(position);
                 holder.name.setText( "线路" + (position + 1));
                 holder.lightNum.setText( "红绿灯数：" + drivingRouteLine.getLightNum());
                 holder.dis.setText("拥堵距离为：" + drivingRouteLine.getCongestionDistance() + "米");
                 break;
             case MASS_TRANSIT_ROUTE:
-                MassTransitRouteLine massTransitRouteLine = (MassTransitRouteLine) routeLines.get(position);
+                MassTransitRouteLine massTransitRouteLine = (MassTransitRouteLine) mRouteLines.get(position);
                 holder.name.setText("线路" + (position + 1));
                 holder.lightNum.setText( "预计达到时间：" + massTransitRouteLine.getArriveTime() );
                 holder.dis.setText("总票价：" + massTransitRouteLine.getPrice() + "元");
                 break;
-
             default:
                 break;
-
         }
 
         return convertView;
     }
 
     private class NodeViewHolder {
-
         private TextView name;
         private TextView lightNum;
         private TextView dis;

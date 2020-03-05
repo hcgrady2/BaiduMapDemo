@@ -4,8 +4,8 @@
 
 package com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.algo;
 
-import android.support.v4.util.LruCache;
 
+import android.util.LruCache;
 
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.Cluster;
 import com.hc.mapdemo.BaiduLBSDemo.clusterutil.clustering.ClusterItem;
@@ -30,6 +30,7 @@ public class PreCachingAlgorithmDecorator<T extends ClusterItem> implements Algo
         mAlgorithm = algorithm;
     }
 
+    @Override
     public void addItem(T item) {
         mAlgorithm.addItem(item);
         clearCache();
@@ -47,6 +48,7 @@ public class PreCachingAlgorithmDecorator<T extends ClusterItem> implements Algo
         clearCache();
     }
 
+    @Override
     public void removeItem(T item) {
         mAlgorithm.removeItem(item);
         clearCache();

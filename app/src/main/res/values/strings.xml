@@ -88,7 +88,9 @@
 
     <string name="demo_title_custom_map_preview">个性化地图预览</string>
     <string name="demo_desc_custom_map_preview">扫描二维码预览个性化地图编辑器生成的个性化地图样式</string>
+    <string name="demo_title_regeocode">逆地理编码功能--ReverseGeoCodeDemo</string>
 
+    <string name="demo_desc_regeocode">介绍地址信息与坐标之间的相互转换，获取周边的poi信息</string>
 
     <string name="demo_desc_opengl">介绍如何使用OpenGL绘制在地图中进行绘制</string>
     <string name="key_error">"请在  DemoApplication.java文件输入正确的授权Key！\r\n申请地址：http://dev.baidu.com/wiki/static/imap/key/"</string>
@@ -136,6 +138,23 @@
 
 
 
+    <string name="demo_name_mass_transit_route">综合路线规划功能</string>
+    <string name="demo_title_mass_transit_route">综合路线规划功能--MassTransitRouteDemo</string>
+    <string name="demo_desc_mass_transit_route">介绍跨城、同城、综合路线规划及自定义图标方法</string>
+    <string name="demo_name_transit_route">公交路线规划功能</string>
+    <string name="demo_title_transit_route">公交路线规划功能--TransitRoutePlanDemo</string>
+    <string name="demo_desc_transit_route">介绍公交路线规划及自定义图标方法</string>
+    <string name="demo_name_walking_route">步行路线规划功能</string>
+    <string name="demo_title_walking_route">步行路线规划功能--WalkingRouteSearchDemo</string>
+    <string name="demo_desc_walking_route">介绍步行路线规划及自定义图标方法</string>
+    <string name="demo_name_biking_route">骑行路线规划功能</string>
+    <string name="demo_title_biking_route">骑行路线规划功能--BikingRouteSearchDemo</string>
+    <string name="demo_desc_biking_route">介绍骑行路线规划及自定义图标方法</string>
+    <string name="demo_name_driving_route">驾车路线规划功能</string>
+    <string name="demo_title_driving_route">驾车路线规划功能--DrivingRouteSearchDemo</string>
+    <string name="demo_desc_driving_route">介绍驾车线路规划、驾车策略、路况展示及自定义图标方法</string>
+
+    <string name="demo_name_track_show">小车轨迹平滑移动</string>
 
 
 
@@ -147,6 +166,164 @@
 
 
 
+
+
+
+    <string name="demo_title_util">实用工具</string>
+    <string name="demo_desc_util">介绍距离计算、坐标转换、调启百度地图功能等工具的使用</string>
+    <string name="demo_title_distance">两点间距离--DistanceUtilDemo</string>
+    <string name="demo_desc_distance">两点间距离计算</string>
+    <string name="demo_name_contains">点与圆、多边形的位置关系</string>
+    <string name="demo_title_contains">点与圆、多边形的位置关系--SpatialRelationDemo</string>
+    <string name="demo_desc_contains">判断点与圆、多边形的位置关系</string>
+    <string name="demo_title_routeplan">路线规划</string>
+    <string name="demo_desc_routeplan">介绍跨城交通、公交、驾车、步行、骑行五种线路规划方法</string>
+    <string name="demo_name_indoorroute">室内路线规划</string>
+    <string name="demo_title_indoorroute">室内路线规划--IndoorRouteDemo</string>
+    <string name="demo_desc_indoorroute">介绍室内路线规划功能</string>
+    <string name="demo_title_searchlist">检索地图数据</string>
+    <string name="demo_desc_searchlist">介绍地图检索功能，包括POI检索，公交信息检索，地理编码检索等</string>
+    <string name="demo_name_poidetailsearch">详情POI搜索功能</string>
+    <string name="demo_title_poidetailsearch">详情POI搜索功能--PoiDetailSearchDemo</string>
+    <string name="demo_desc_poidetailsearch">介绍使用UID搜索POI详情功能</string>
+    <string name="demo_name_poicitysearch">城市POI搜索功能</string>
+    <string name="demo_title_poicitysearch">城市POI搜索功能--PoiCitySearchDemo</string>
+    <string name="demo_desc_poicitysearch">介绍城市POI查询，POI父子节点展示</string>
+    <string name="demo_name_poinearbysearch">周边POI搜索功能</string>
+    <string name="demo_title_poinearbysearch">周边POI搜索功能--PoiNearbySearchDemo</string>
+    <string name="demo_name_poiboundsearch">矩形POI搜索功能</string>
+    <string name="demo_title_poiboundsearch">矩形POI搜索功能--PoiBoundSearchDemo</string>
+    <string name="demo_desc_poiboundsearch">介绍矩形POI查询、POI父子节点展示</string>
+    <string name="demo_name_poisugsearch">提示POI搜索功能</string>
+    <string name="demo_title_poisugsearch">提示POI搜索功能--PoiSugSearchDemo</string>
+    <string name="demo_desc_poisugsearch">介绍地点检索输入提示</string>
+    <string name="demo_title_drawlist">在地图上绘制</string>
+    <string name="demo_desc_drawlist">介绍自定义绘制点、线、多边形、圆等几何图形和文字</string>
+    <string name="demo_name_polyline">绘制线</string>
+    <string name="demo_title_polyline">绘制线--PolylineDemo</string>
+    <string name="demo_desc_polyline">介绍在地图上绘制线并添加事件响应</string>
+
+    <string name="demo_name_circle">绘制圆</string>
+    <string name="demo_title_circle">绘制圆--CircleDemo</string>
+    <string name="demo_desc_circle">介绍在地图上绘制圆</string>
+    <string name="demo_name_arc">绘制弧</string>
+    <string name="demo_title_arc">绘制弧--ArcDemo</string>
+    <string name="demo_desc_arc">介绍在地图上绘制弧线</string>
+    <string name="demo_name_marker">覆盖物功能</string>
+    <string name="demo_title_marker">绘制点标记--MarkerDemo</string>
+    <string name="demo_desc_marker">介绍Marker绘制，Marker动画、Marker响应事件、InfoWindow展示、InfoWindow响应事件</string>
+    <string name="demo_name_polygon">绘制多边形</string>
+    <string name="demo_title_polygon">绘制多边形--PolygonDemo</string>
+    <string name="demo_desc_polygon">介绍在地图上绘制多边形</string>
+    <string name="demo_name_groundoverlay">自定义图片图层</string>
+    <string name="demo_title_groundoverlay">自定义图片图层--GroundOverlayDemo</string>
+    <string name="demo_desc_groundoverlay">介绍在地图上添加图片覆盖物</string>
+    <string name="demo_title_tile">自定义瓦片图--TileOverlayDemo</string>
+    <string name="demo_desc_tile">介绍如何在地图上添加自定义的瓦片图</string>
+    <string name="demo_title_heat">自定义热力图--HeatMapDemo</string>
+    <string name="demo_desc_heat">介绍如何以热力图形式显示用户自有数据</string>
+    <string name="demo_title_layerlist">图层展示</string>
+    <string name="demo_desc_layerlist">卫星图、交通流量图、百度城市热力图、3D地图及定位图层的展示</string>
+    <string name="demo_title_layertraffic">路况图及热力图--LayerTrafficAndHeatMapDemo</string>
+    <string name="demo_name_layertraffic">路况图及热力图功能</string>
+    <string name="demo_desc_layertraffic">展示地图中路况和热力图的使用</string>
+    <string name="demo_name_locationtype">显示定位（定位模式切换)</string>
+    <string name="demo_title_locationtype">显示定位（定位模式切换)--LocationTypeDemo</string>
+    <string name="demo_desc_locationtype">展示定位图层三种定位模式的使用</string>
+    <string name="demo_name_locationcustom">显示定位（自定义样式)</string>
+    <string name="demo_title_locationcustom">显示定位（自定义样式)--LocationCustomDemo</string>
+    <string name="demo_desc_locationcustom">展示定位图层自定义样式的使用</string>
+    <string name="demo_title_layerbuilding">3D楼宇--LayerBuildingDemo</string>
+    <string name="demo_name_layerbuilding">3D楼宇</string>
+    <string name="demo_desc_layerbuilding">图层展示（3D楼宇）</string>
+
+    <string name="demo_title_createmaplist">创建地图</string>
+    <string name="demo_name_custom">个性化地图</string>
+    <string name="demo_desc_createmaplist">基础地图、个性化地图、TextureMapView、离线地图、室内地图以及多地图创建</string>
+    <string name="demo_title_custommap">个性化地图--CustomMapDemo</string>
+    <string name="demo_desc_custommap">介绍个性化地图的创建和使用</string>
+    <string name="demo_name_map_type">基础地图类型</string>
+
+    <string name="demo_name_texturemapview">TextureMapView</string>
+    <string name="demo_title_texturemapview">TextureMapView使用--TextureMapViewDemo</string>
+    <string name="demo_title_mapcontrollist">与地图交互</string>
+    <string name="demo_desc_mapcontrollist">介绍地图基本控制方法，事件响应、手势控制以及UI控件的显示与隐藏</string>
+    <string name="demo_name_gesture">手势设置</string>
+    <string name="demo_title_gesture">手势设置--UISettingsDemo</string>
+    <string name="demo_desc_gesture">缩放、平移、旋转、俯视等手势的开启和禁用</string>
+    <string name="demo_name_mapstatus">事件交互（地图状态)</string>
+    <string name="demo_title_mapstatus">事件交互（地图状态)--MapStatusDemo</string>
+    <string name="demo_desc_mapstatus">地图状态改变的事件响应</string>
+    <string name="demo_name_mapclick">事件交互(点击)</string>
+    <string name="demo_title_mapclick">事件交互(点击)--MapClickDemo</string>
+    <string name="demo_desc_mapclick">对地图单击、长按、双击的事件响应</string>
+    <string name="demo_title_map_type">地图类型--MapTypeDemo</string>
+    <string name="demo_desc_map_type">普通地图、空白地图、卫星地图展示</string>
+    <string name="demo_title_multimapview">多地图展示--MultiMapViewDemo</string>
+    <string name="demo_desc_multimapview">在一个Activity中创建多个地图展示</string>
+    <string name="demo_name_logosetting">控件设置</string>
+    <string name="demo_title_logosetting">控件设置--ViewSettingDemo</string>
+    <string name="demo_desc_logosetting">logo、比例尺设置</string>
+    <string name="demo_name_mapbounds">设置地图显示区域及地图更新</string>
+    <string name="demo_title_mapbounds">更新地图状态--MapBoundsDemo</string>
+    <string name="demo_desc_mapbounds">设置更新地图状态，设置地图显示范围，设置地图中心点以及缩放级别，设置显示在规定宽高中的地图地理范围等</string>
+    <string name="demo_name_limitbounds">设置地图的可移动范围</string>
+    <string name="demo_title_limitbounds">设置地图的可移动范围--MapLimitBoundsDemo</string>
+    <string name="demo_desc_limitbounds">设置地图的可移动范围</string>
+    <string name="demo_name_padding">设置地图操作区Padding</string>
+    <string name="demo_title_padding">设置地图操作区--PaddingDemo</string>
+    <string name="demo_desc_padding">设置地图操作区距屏幕的距离、给MapView添加一个子View</string>
+    <string name="demo_name_mappoi">控制底图标注显示</string>
+    <string name="demo_title_mappoi">控制底图标注显示--MapPoiDemo</string>
+    <string name="demo_desc_mappoi">控制是否显示底图默认标注</string>
+    <string name="demo_name_snapshot">截图</string>
+    <string name="demo_title_snapshot">截图--SnapShotDemo</string>
+    <string name="demo_desc_snapshot">截图及其事件响应</string>
+
+
+
+
+
+    <!--    定位 demo 需要的资源-->
+    <string name="startlocation">开始定位</string>
+    <string name="stoplocation">停止定位</string>
+    <string name="startforeground">开始后台定位</string>
+    <string name="stopforeground">停止后台定位</string>
+    <string name="error_code_desc">错误码说明</string>
+    <string name="diy_call_back">自定义回调</string>
+    <string name="diy_call_back_ps">ps:网络定位由于精度低于gps，计算距离会有部分偏差</string>
+    <string name="qa_title">常见问题</string>
+    <string name="hight_accuracy_desc">高精度定位模式下，会同时使用GPS、Wifi和基站定位，返回的是当前条件下精度最好的定位结果</string>
+    <string name="saving_battery_desc">低功耗定位模式下，仅使用网络定位即Wifi和基站定位，返回的是当前条件下精度最好的网络定位结果</string>
+    <string name="device_sensor_desc">仅用设备定位模式下，只使用用户的GPS进行定位。这个模式下，由于GPS芯片锁定需要时间，首次定位速度会需要一定的时间</string>
+    <string name="demo_title_signin">签到场景--SignInSceneActivity</string>
+    <string name="demo_desc_signin">签到场景 只进行一次定位返回最接近真实位置的定位结果（定位速度可能会延迟1-3s）</string>
+    <string name="demo_title_sport">出行场景--SportSceneActivity</string>
+    <string name="demo_desc_sport">出行场景 高精度连续定位，适用于用户内外切换的场景，卫星定位和网络定位相互切换，卫星定位成功之后网络定位不再返回，卫星信号断开之后一段时间才会返回网络结果）</string>
+    <string name="demo_title_transport">运动场景--TransportSceneActivity</string>
+    <string name="demo_desc_transport">运动场景 高精度连续定位，适用于用户内外切换的场景，卫星定位和网络定位相互切换，卫星定位成功之后网络定位不再返回，卫星信号断开之后一段时间才会返回网络结果）</string>
+    <string name="error_code_detail">
+        61 ： GPS定位结果，GPS定位成功。\n
+		62 ： 定位失败，无法获取有效定位依据，请检查运营商网络或者WiFi网络是否正常开启，尝试重新请求定位。\n
+		63 ： 网络异常，没有成功向服务器发起请求，请确认当前测试手机网络是否通畅，尝试重新请求定位。\n
+		66 ： 离线定位结果，通过requestOfflineLocaiton调用时对应的返回结果。\n
+		67 ： 离线定位失败，通过requestOfflineLocaiton调用时对应的返回结果。\n
+		161： 网络定位结果，网络定位成功\n
+		162： 请求串密文解析失败，一般是由于客户端SO文件加载失败造成，请严格参照开发指南或demo开发，放入对应SO文件。\n
+        167： 服务端定位失败，请您检查是否禁用获取位置信息权限，尝试重新请求定位\n
+        505： key不存在或者非法，请按照说明文档重新申请AK \n
+    </string>
+    <string name="qa_callback">问题反馈</string>
+    <string name="qa_format">邮件格式格式：\n
+		1、问题描述：问题描述\n
+		2、定位设备CUID：获取方式：打开百度地图，我的->设置->关于，长按关于，获得cuid\n
+		3、定位精确时间：格式如：2019年01月01日00:00:00\n
+        4、我定位原始点（错误点）坐标：说明坐标及坐标系类型（BD坐标系、GCJ02、WGS84）\n
+        5、定位纠正点（正确点）坐标：说明坐标及坐标系类型（BD坐标系、GCJ02、WGS84）\n
+		6、具体描述：细节描述，室内 还是 室外，如在室内场景可标注楼宇名字和定位楼层，可以给出问题发生的频率或者APP名称，sdk版本等，也可以加上附件如日志，贴图等\n
+        </string>
+    <string name="qa_callback_mail">反馈邮箱:ext_map_vip@baidu.com@baidu.com</string>
+    <string name="demo_title_track_show">小车轨迹平滑移动--TrackShowDemo</string>
 
 
 </resources>

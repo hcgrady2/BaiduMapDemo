@@ -10,4 +10,16 @@
     <dimen name="during_setting_btn_title_top_margin">12dp</dimen>
 
 
+    <dimen name="main_title_size">18sp</dimen>
+    <dimen name="second_title_size">16sp</dimen>
+    <dimen name="desc_title_size">12sp</dimen>
+
+
+
+    <dimen name="margin">8dp</dimen>
+    <dimen name="poi_title_size">14sp</dimen>
+    <dimen name="ui_size">12sp</dimen>
+    <dimen name="actionbar_size">35sp</dimen>
+
+
 </resources>

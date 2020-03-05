@@ -5,7 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.hc.mapdemo.R;;
+import com.hc.mapdemo.R;
+
 
 public class ShareDemo extends Activity {
 
@@ -19,7 +20,5 @@ public class ShareDemo extends Activity {
         Intent intent = new Intent();
         intent.setClass(this, ShareDemoActivity.class);
         startActivity(intent);
-
     }
-
 }

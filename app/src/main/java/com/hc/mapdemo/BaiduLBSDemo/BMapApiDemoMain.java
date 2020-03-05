@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.VersionInfo;
+import com.baidu.mapapi.search.route.TransitRoutePlanOption;
 import com.hc.mapdemo.BaiduLBSDemo.cloud.CloudSearchDemo;
 import com.hc.mapdemo.BaiduLBSDemo.map.BaseMapDemo;
 import com.hc.mapdemo.BaiduLBSDemo.map.FavoriteDemo;
@@ -40,13 +41,13 @@ import com.hc.mapdemo.BaiduLBSDemo.map.TextureMapViewDemo;
 import com.hc.mapdemo.BaiduLBSDemo.map.TileOverlayDemo;
 import com.hc.mapdemo.BaiduLBSDemo.map.TrackShowDemo;
 import com.hc.mapdemo.BaiduLBSDemo.map.UISettingDemo;
-import com.hc.mapdemo.BaiduLBSDemo.search.BusLineSearchDemo;
 import com.hc.mapdemo.BaiduLBSDemo.search.DistrictSearchDemo;
 import com.hc.mapdemo.BaiduLBSDemo.search.GeoCoderDemo;
 import com.hc.mapdemo.BaiduLBSDemo.search.IndoorSearchDemo;
-import com.hc.mapdemo.BaiduLBSDemo.search.PoiSearchDemo;
-import com.hc.mapdemo.BaiduLBSDemo.search.RoutePlanDemo;
+import com.hc.mapdemo.BaiduLBSDemo.search.PoiSugSearchDemo;
 import com.hc.mapdemo.BaiduLBSDemo.search.ShareDemo;
+import com.hc.mapdemo.BaiduLBSDemo.searchroute.BusLineSearchDemo;
+import com.hc.mapdemo.BaiduLBSDemo.searchroute.TransitRoutePlanDemo;
 import com.hc.mapdemo.BaiduLBSDemo.util.CustomMapPreview;
 import com.hc.mapdemo.BaiduLBSDemo.util.OpenBaiduMap;
 import com.hc.mapdemo.R;
@@ -107,6 +108,7 @@ public class BMapApiDemoMain extends Activity {
         // 添加ListItem，设置事件响应
         mListView.setAdapter(new DemoListAdapter());
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
             public void onItemClick(AdapterView<?> arg0, View v, int index, long arg3) {
                 onListItemClick(index);
             }
@@ -142,8 +144,8 @@ public class BMapApiDemoMain extends Activity {
             new DemoInfo(R.string.demo_title_marker_animation, R.string.demo_desc_marker_animation, MarkerAnimationDemo.class),
             new DemoInfo(R.string.demo_title_heatmap, R.string.demo_desc_heatmap, HeatMapDemo.class),
             new DemoInfo(R.string.demo_title_geocode, R.string.demo_desc_geocode, GeoCoderDemo.class),
-            new DemoInfo(R.string.demo_title_poi, R.string.demo_desc_poi, PoiSearchDemo.class),
-            new DemoInfo(R.string.demo_title_route, R.string.demo_desc_route, RoutePlanDemo.class),
+            new DemoInfo(R.string.demo_title_poi, R.string.demo_desc_poi, PoiSugSearchDemo.class),
+            new DemoInfo(R.string.demo_title_route, R.string.demo_desc_route, TransitRoutePlanDemo.class),
             new DemoInfo(R.string.demo_title_districsearch, R.string.demo_desc_districsearch, DistrictSearchDemo.class),
             new DemoInfo(R.string.demo_title_bus, R.string.demo_desc_bus, BusLineSearchDemo.class),
             new DemoInfo(R.string.demo_title_share, R.string.demo_desc_share, ShareDemo.class),
