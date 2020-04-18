@@ -66,6 +66,7 @@ public class DemoRouteResultFragment extends Fragment implements View.OnClickLis
 
         BaiduNaviManagerFactory.getRouteResultSettingManager().setRouteMargin(
                 100, 100, 100, 500);
+
         BaiduNaviManagerFactory.getRouteResultManager().setRouteClickedListener(
                 new IBNRouteResultManager.IRouteClickedListener() {
                     @Override
@@ -73,6 +74,8 @@ public class DemoRouteResultFragment extends Fragment implements View.OnClickLis
                         BaiduNaviManagerFactory.getRouteGuideManager().selectRoute(index);
                     }
                 });
+
+
         initView();
         initData();
         return mRootView;

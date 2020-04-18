@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.baidu.mapapi.clusterutil.ui.RotationLayout
+    <com.hc.mapdemo.BaiduLBSDemo.clusterutil.ui.RotationLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -22,6 +22,6 @@
             android:paddingRight="10dp"
             android:paddingTop="5dp"/>
 
-    </com.baidu.mapapi.clusterutil.ui.RotationLayout>
+    </com.hc.mapdemo.BaiduLBSDemo.clusterutil.ui.RotationLayout>
 
 </LinearLayout>

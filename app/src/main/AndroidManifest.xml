@@ -355,11 +355,18 @@
         <activity android:name=".Location.demo.SignInSceneActivity" />
         <activity android:name=".Location.demo.SportSceneActivity" />
         <activity android:name=".Location.demo.TransportSceneActivity" />
+        <activity android:name=".BaiduLBSDemo.searchroute.BusLineSearchDemo"/>
+
+        <activity android:name=".BaiduLBSDemo.search.IndoorSearchDemo"/>
+
+
         <activity
             android:name=".Location.demo.LocationNotifyActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
+        <activity android:name=".BaiduLBSDemo.search.PoiSugSearchDemo"/>
+        <activity android:name=".BaiduLBSDemo.searchroute.TransitRoutePlanDemo"/>
 
 
 

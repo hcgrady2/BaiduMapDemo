@@ -117,6 +117,9 @@ public class DemoDrivingActivity extends FragmentActivity {
                                 tx.add(R.id.fragment_content, fragment, "RouteResult");
                                 tx.commit();
                                 break;
+
+
+
                             case IBNRoutePlanManager.MSG_NAVI_ROUTE_PLAN_FAILED:
                                 mFl_retry.setVisibility(View.VISIBLE);
                                 Toast.makeText(getApplicationContext(),

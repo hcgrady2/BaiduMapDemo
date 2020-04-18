@@ -35,6 +35,8 @@ import java.util.List;
 public class DistrictSearchDemo extends AppCompatActivity implements OnGetDistricSearchResultListener,
         Button.OnClickListener {
 
+
+    //百度地图提供的判断点是否在多边形区域内的方法 isPolygonContainsPoint
     private DistrictSearch mDistrictSearch;
     private EditText mCity;
     private EditText mDistrict;
@@ -74,6 +76,7 @@ public class DistrictSearchDemo extends AppCompatActivity implements OnGetDistri
                 return;
             }
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
+
             for (List<LatLng> polyline : polyLines) {
                 OverlayOptions ooPolyline = new PolylineOptions().width(10).points(polyline).dottedLine(true).color(0xAA00FF00);
                 mBaiduMap.addOverlay(ooPolyline);
@@ -84,6 +87,9 @@ public class DistrictSearchDemo extends AppCompatActivity implements OnGetDistri
                     builder.include(latLng);
                 }
             }
+
+
+
             mBaiduMap.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
         }
     }
