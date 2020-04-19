@@ -65,6 +65,7 @@ import com.baidu.mapapi.utils.SpatialRelationUtil;
 import com.hc.mapdemo.BaiduLBSDemo.BMapApiDemoMain;
 import com.hc.mapdemo.Location.LocationMain;
 import com.hc.mapdemo.ONSDKDemo.ONSDKDemoMain;
+import com.hc.mapdemo.my_gaode_demo.MyGaodeMain;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     private static final String TAG = "MapStatus";
 
-    Button btn_baidu_lbs,btn_baidu_nav,btn_location_demo;
+    Button btn_baidu_lbs,btn_baidu_nav,btn_location_demo,btn_mygaode_demo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,6 +117,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
         btn_location_demo = findViewById(R.id.btn_location_demo);
         btn_location_demo.setOnClickListener(this);
+
+        btn_mygaode_demo = findViewById(R.id.btn_mygaode_demo);
+        btn_mygaode_demo.setOnClickListener(this);
 
     }
 
@@ -183,29 +187,24 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 break;
 
 
-
             case R.id.btn_nav_demo:
 
                 startActivity(new Intent(
                         MainActivity.this, ONSDKDemoMain.class
                 ));
-
-
-               // Toast.makeText(this, "开始导航", Toast.LENGTH_SHORT).show();
                 break;
 
 
 
             case R.id.btn_location_demo:
-
-                startActivity(new Intent(
-                        MainActivity.this, LocationMain.class
-                ));
-
-
-                // Toast.makeText(this, "开始导航", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, LocationMain.class));
                 break;
 
+
+
+            case R.id.btn_mygaode_demo:
+                startActivity(new Intent(MainActivity.this, MyGaodeMain.class));
+                break;
 
 
 

@@ -32,5 +32,14 @@
 
 
 
+        <Button
+            android:id="@+id/btn_mygaode_demo"
+            android:text="高德地图 Demo(自己)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+
 
 </LinearLayout>
