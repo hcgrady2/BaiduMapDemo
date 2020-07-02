@@ -6,6 +6,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,6 +21,7 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
@@ -50,6 +53,7 @@ public class LocationDemo extends Activity implements SensorEventListener {
 
     MapView mMapView;
     BaiduMap mBaiduMap;
+    Button button;
 
     // UI相关
     OnCheckedChangeListener radioButtonListener;
@@ -57,7 +61,21 @@ public class LocationDemo extends Activity implements SensorEventListener {
     boolean isFirstLoc = true; // 是否首次定位
     private MyLocationData locData;
     private float direction;
+    InfoWindow mInfoWindow;
 
+    int i = 0;
+
+
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (button != null){
+                button.setText("InfoWindow" + i++);
+                mHandler.sendEmptyMessageDelayed(111,1000);
+            }
+        }
+    };
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -138,6 +156,8 @@ public class LocationDemo extends Activity implements SensorEventListener {
         option.setScanSpan(1000);
         mLocClient.setLocOption(option);
         mLocClient.start();
+
+        mHandler.sendEmptyMessageDelayed(111,1000);
     }
 
     @Override
@@ -188,7 +208,36 @@ public class LocationDemo extends Activity implements SensorEventListener {
                 MapStatus.Builder builder = new MapStatus.Builder();
                 builder.target(ll).zoom(18.0f);
                 mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+
+
+                //用来构造InfoWindow的Button
+                if (button == null)
+                 button = new Button(getApplicationContext());
+                button.setBackgroundResource(R.drawable.popup);
+                //button.setText("InfoWindow" + i);
+
+                //构造InfoWindow
+                //point 描述的位置点
+                //-100 InfoWindow相对于point在y轴的偏移量
+                if (mInfoWindow == null){
+                    mInfoWindow = new InfoWindow(button, ll, -100);
+
+
+                    //使InfoWindow生效
+                    mBaiduMap.showInfoWindow(mInfoWindow);
+                }
+
+
+
+
+
             }
+
+
+
+
+
+
         }
 
         public void onReceivePoi(BDLocation poiLocation) {
