@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     private static final String TAG = "MapStatus";
 
     Button btn_baidu_lbs,btn_baidu_nav,btn_location_demo,btn_mygaode_demo;
+    Button btn_baidu_pano;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +121,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
         btn_mygaode_demo = findViewById(R.id.btn_mygaode_demo);
         btn_mygaode_demo.setOnClickListener(this);
+
+        btn_baidu_pano = findViewById(R.id.btn_baidu_pano);
+        btn_baidu_pano.setOnClickListener(this);
 
     }
 
@@ -207,6 +211,10 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 break;
 
 
+
+            case R.id.btn_baidu_pano:
+               // startActivity(new Intent(MainActivity.this, PanoDemoActivity.class));
+                break;
 
             default:
                     break;

@@ -385,6 +385,19 @@
 
 
 
+        <activity
+            android:name=".panodemo.PanoDemoActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".panodemo.PanoDemoMain"
+            android:screenOrientation="sensor" >
+        </activity>
+        <activity android:name=".panodemo.PanoDemoCoordinate" />
+
+
 
     </application>
 
