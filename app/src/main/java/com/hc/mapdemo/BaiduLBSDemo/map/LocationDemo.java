@@ -8,6 +8,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -16,12 +17,18 @@ import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.animation.AlphaAnimation;
+import com.baidu.mapapi.animation.Animation;
+import com.baidu.mapapi.animation.AnimationSet;
+import com.baidu.mapapi.animation.ScaleAnimation;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.map.MyLocationData;
@@ -51,6 +58,10 @@ public class LocationDemo extends Activity implements SensorEventListener {
     MapView mMapView;
     BaiduMap mBaiduMap;
 
+
+    Marker bdMarker;
+
+
     // UI相关
     OnCheckedChangeListener radioButtonListener;
     Button requestLocButton;
@@ -67,13 +78,17 @@ public class LocationDemo extends Activity implements SensorEventListener {
         mCurrentMode = LocationMode.NORMAL;
         requestLocButton.setText("定位模式：普通");
         OnClickListener btnClickListener = new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 switch (mCurrentMode) {
                     case NORMAL:
                         requestLocButton.setText("定位模式：跟随");
                         mCurrentMode = LocationMode.FOLLOWING;
-                        mBaiduMap.setMyLocationConfiguration(new MyLocationConfiguration(
-                                        mCurrentMode, true, mCurrentMarker));
+
+                      //  mBaiduMap.setMyLocationConfiguration(new MyLocationConfiguration(mCurrentMode, true, mCurrentMarker));
+
+
+
                         MapStatus.Builder builder = new MapStatus.Builder();
                         builder.overlook(0);
                         mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
@@ -81,8 +96,9 @@ public class LocationDemo extends Activity implements SensorEventListener {
                     case COMPASS:
                         requestLocButton.setText("定位模式：普通");
                         mCurrentMode = LocationMode.NORMAL;
-                        mBaiduMap.setMyLocationConfiguration(new MyLocationConfiguration(
-                                        mCurrentMode, true, mCurrentMarker));
+
+                      //  mBaiduMap.setMyLocationConfiguration(new MyLocationConfiguration(mCurrentMode, true, mCurrentMarker));
+
                         MapStatus.Builder builder1 = new MapStatus.Builder();
                         builder1.overlook(0);
                         mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder1.build()));
@@ -90,8 +106,7 @@ public class LocationDemo extends Activity implements SensorEventListener {
                     case FOLLOWING:
                         requestLocButton.setText("定位模式：罗盘");
                         mCurrentMode = LocationMode.COMPASS;
-                        mBaiduMap.setMyLocationConfiguration(new MyLocationConfiguration(
-                                        mCurrentMode, true, mCurrentMarker));
+                        //mBaiduMap.setMyLocationConfiguration(new MyLocationConfiguration(mCurrentMode, true, mCurrentMarker));
                         break;
                     default:
                         break;
@@ -104,22 +119,24 @@ public class LocationDemo extends Activity implements SensorEventListener {
         radioButtonListener = new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.defaulticon) {
-                    // 传入null则，恢复默认图标
-                    mCurrentMarker = null;
-                    MyLocationConfiguration locationConfiguration = new MyLocationConfiguration(mCurrentMode,
-                            true, null);
-                    mBaiduMap.setMyLocationConfiguration(locationConfiguration);
-                }
+//                if (checkedId == R.id.defaulticon) {
+//                    // 传入null则，恢复默认图标
+//                    mCurrentMarker = null;
+//                    MyLocationConfiguration locationConfiguration = new MyLocationConfiguration(mCurrentMode,
+//                            true, null);
+//                    mBaiduMap.setMyLocationConfiguration(locationConfiguration);
+//                }
+//
+//                if (checkedId == R.id.customicon) {
+//                    // 修改为自定义marker
+//                    mCurrentMarker = BitmapDescriptorFactory.fromResource(R.drawable.icon_geo);
+//                    MyLocationConfiguration locationConfiguration = new MyLocationConfiguration(mCurrentMode,
+//                            true, mCurrentMarker, accuracyCircleFillColor, accuracyCircleStrokeColor);
+//
+//                    mBaiduMap.setMyLocationConfiguration(locationConfiguration);
+//                }
 
-                if (checkedId == R.id.customicon) {
-                    // 修改为自定义marker
-                    mCurrentMarker = BitmapDescriptorFactory.fromResource(R.drawable.icon_geo);
-                    MyLocationConfiguration locationConfiguration = new MyLocationConfiguration(mCurrentMode,
-                            true, mCurrentMarker, accuracyCircleFillColor, accuracyCircleStrokeColor);
 
-                    mBaiduMap.setMyLocationConfiguration(locationConfiguration);
-                }
             }
         };
         group.setOnCheckedChangeListener(radioButtonListener);
@@ -138,6 +155,13 @@ public class LocationDemo extends Activity implements SensorEventListener {
         option.setScanSpan(1000);
         mLocClient.setLocOption(option);
         mLocClient.start();
+
+
+
+
+
+
+
     }
 
     @Override
@@ -180,7 +204,9 @@ public class LocationDemo extends Activity implements SensorEventListener {
                     // 此处设置开发者获取到的方向信息，顺时针0-360
                     .direction(mCurrentDirection).latitude(location.getLatitude())
                     .longitude(location.getLongitude()).build();
+
             mBaiduMap.setMyLocationData(locData);
+
             if (isFirstLoc) {
                 isFirstLoc = false;
                 LatLng ll = new LatLng(location.getLatitude(),
@@ -189,6 +215,25 @@ public class LocationDemo extends Activity implements SensorEventListener {
                 builder.target(ll).zoom(18.0f);
                 mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
             }
+
+
+
+
+
+            MarkerOptions ooE = new MarkerOptions().position(new LatLng(mCurrentLat,mCurrentLon)).
+                    icon( BitmapDescriptorFactory.fromResource(R.drawable.icon_geo));
+
+
+            if(bdMarker == null){
+                bdMarker = (Marker) (mBaiduMap.addOverlay(ooE));
+                startAnimationSet();
+            }
+
+
+
+
+
+
         }
 
         public void onReceivePoi(BDLocation poiLocation) {
@@ -227,6 +272,126 @@ public class LocationDemo extends Activity implements SensorEventListener {
         mMapView = null;
         super.onDestroy();
     }
+
+
+
+    /**
+     * 开启缩放动画
+     */
+    public void startScaleAnimation() {
+        bdMarker.setAnimation(getScaleAnimation());
+        bdMarker.startAnimation();
+    }
+
+    /**
+     * 添加透明动画
+     */
+    public void startAlphaAnimation() {
+        bdMarker.setAnimation(getAlphaAnimation());
+        bdMarker.startAnimation();
+
+    }
+
+    /**
+     * 创建透明度动画
+     */
+    private Animation getAlphaAnimation() {
+        AlphaAnimation mAlphaAnimation = new AlphaAnimation(1f, 0f, 1f);
+        mAlphaAnimation.setDuration(3000);
+        mAlphaAnimation.setRepeatCount(1);
+        mAlphaAnimation.setRepeatMode(Animation.RepeatMode.RESTART);
+        mAlphaAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationEnd() {
+            }
+
+            @Override
+            public void onAnimationCancel() {
+            }
+
+            @Override
+            public void onAnimationRepeat() {
+            }
+        });
+
+        return mAlphaAnimation;
+    }
+
+
+    /**
+     * 创建缩放动画
+     */
+    private Animation getScaleAnimation() {
+        ScaleAnimation mScale = new ScaleAnimation(1f, 2f, 1f);
+        mScale.setDuration(2000);
+        mScale.setRepeatMode(Animation.RepeatMode.RESTART);//动画重复模式
+        mScale.setRepeatCount(1);//动画重复次数
+        mScale.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationEnd() {
+            }
+
+            @Override
+            public void onAnimationCancel() {
+            }
+
+            @Override
+            public void onAnimationRepeat() {
+            }
+        });
+
+        return mScale;
+
+    }
+
+
+
+    /**
+     * 添加组合动画
+     */
+    public void startAnimationSet() {
+        AnimationSet animationSet = new AnimationSet();
+        animationSet.addAnimation(getAlphaAnimation());
+        animationSet.addAnimation(getAlphaAnimation());
+        animationSet.addAnimation(getScaleAnimation());
+        animationSet.addAnimation(getScaleAnimation());
+        animationSet.setAnimatorSetMode(0);
+        animationSet.setInterpolator(new LinearInterpolator());
+        animationSet.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart() {
+            }
+
+            @Override
+            public void onAnimationEnd() {
+            }
+
+            @Override
+            public void onAnimationCancel() {
+            }
+
+            @Override
+            public void onAnimationRepeat() {
+            }
+        });
+
+        if (animationSet == null) {
+            return;
+        }
+
+        bdMarker.setAnimation(animationSet);
+        bdMarker.startAnimation();
+    }
+
+
 
 
 }

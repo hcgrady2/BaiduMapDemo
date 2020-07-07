@@ -3,6 +3,9 @@ package com.hc.mapdemo.BaiduLBSDemo.map;
 import android.app.Activity;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
@@ -63,6 +66,19 @@ public class MarkerAnimationDemo extends Activity {
     BitmapDescriptor bdG = BitmapDescriptorFactory
             .fromResource(R.drawable.icon_markg);
     private Point mScreenCenterPoint;
+
+
+
+
+    private Handler myHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            myHandler.sendEmptyMessageDelayed(123,1000);
+            startScaleAnimation();
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,8 +182,8 @@ public class MarkerAnimationDemo extends Activity {
         MarkerOptions ooA = new MarkerOptions().position(llA).icon(bdA);
         mMarkerA = (Marker) (mBaiduMap.addOverlay(ooA));
 
-        MarkerOptions ooB = new MarkerOptions().position(llB).icon(bdB);
-        mMarkerB = (Marker) (mBaiduMap.addOverlay(ooB));
+//        MarkerOptions ooB = new MarkerOptions().position(llB).icon(bdB);
+//        mMarkerB = (Marker) (mBaiduMap.addOverlay(ooB));
 
         MarkerOptions ooC = new MarkerOptions().position(llC).icon(bdC);
         mMarkerC = (Marker) (mBaiduMap.addOverlay(ooC));
@@ -208,8 +224,44 @@ public class MarkerAnimationDemo extends Activity {
      * 开启缩放动画
      */
     public void startScaleAnimation() {
-        mMarkerB.setAnimation(getScaleAnimation());
+
+
+        MarkerOptions ooB = new MarkerOptions().position(llB).icon(bdB);
+        mMarkerB = (Marker) (mBaiduMap.addOverlay(ooB));
+
+
+
+        ScaleAnimation mScale = new ScaleAnimation(1f, 2f);
+        mScale.setDuration(2000);
+        // mScale.setRepeatMode(Animation.RepeatMode.);//动画重复模式
+        mScale.setRepeatCount(0);//动画重复次数
+        mScale.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart() {
+                Log.i("whc", "single scale onAnimationStart: ");
+            }
+
+            @Override
+            public void onAnimationEnd() {
+                Log.i("whc", "single scale onAnimationEnd: ");
+            }
+
+            @Override
+            public void onAnimationCancel() {
+            }
+
+            @Override
+            public void onAnimationRepeat() {
+            }
+        });
+
+
+        mMarkerB.setAnimation(mScale);
+
         mMarkerB.startAnimation();
+
+
+
     }
 
     /**
@@ -251,24 +303,90 @@ public class MarkerAnimationDemo extends Activity {
         return mSingleScale;
     }
 
+
+
     /**
      * 添加组合动画
      */
     public void startAnimationSet() {
         AnimationSet animationSet = new AnimationSet();
-        animationSet.addAnimation(getAlphaAnimation());
-        animationSet.addAnimation(getRotateAnimation());
-        animationSet.addAnimation(getSingleScaleAnimation());
-        animationSet.addAnimation(getScaleAnimation());
+
+        AlphaAnimation mAlphaAnimation = new AlphaAnimation(1f, 0f, 1f);
+        mAlphaAnimation.setDuration(3000);
+        mAlphaAnimation.setRepeatCount(1);
+        mAlphaAnimation.setRepeatMode(Animation.RepeatMode.RESTART);
+        mAlphaAnimation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart() {
+                Log.i("whc", " alpha onAnimationStart: ");
+            }
+
+            @Override
+            public void onAnimationEnd() {
+                Log.i("whc", " alpha onAnimationEnd: ");
+
+
+            }
+
+            @Override
+            public void onAnimationCancel() {
+            }
+
+            @Override
+            public void onAnimationRepeat() {
+            }
+        });
+
+
+
+
+
+        animationSet.addAnimation(mAlphaAnimation);
+
+      //  animationSet.addAnimation(getRotateAnimation());
+
+
+        //animationSet.addAnimation(getSingleScaleAnimation());
+
+        ScaleAnimation mScale = new ScaleAnimation(1f, 2f, 1f);
+        mScale.setDuration(2000);
+        mScale.setRepeatMode(Animation.RepeatMode.RESTART);//动画重复模式
+        mScale.setRepeatCount(1);//动画重复次数
+        mScale.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart() {
+                Log.i("whc", "scale onAnimationStart: ");
+            }
+
+            @Override
+            public void onAnimationEnd() {
+                Log.i("whc", "onAnimationEnd: scale  ");
+            }
+
+            @Override
+            public void onAnimationCancel() {
+            }
+
+            @Override
+            public void onAnimationRepeat() {
+            }
+        });
+
+
+
+        animationSet.addAnimation(mScale);
+
         animationSet.setAnimatorSetMode(0);
         animationSet.setInterpolator(new LinearInterpolator());
         animationSet.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart() {
+                Log.i("whc", "set onAnimationStart: ");
             }
 
             @Override
             public void onAnimationEnd() {
+                Log.i("whc", "set onAnimationEnd: ");
             }
 
             @Override
@@ -288,21 +406,28 @@ public class MarkerAnimationDemo extends Activity {
         mMarkerE.startAnimation();
     }
 
+
+
+
+
+
     /**
      * 创建缩放动画
      */
     private Animation getScaleAnimation() {
-        ScaleAnimation mScale = new ScaleAnimation(1f, 2f, 1f);
+        ScaleAnimation mScale = new ScaleAnimation(1f, 2f);
         mScale.setDuration(2000);
-        mScale.setRepeatMode(Animation.RepeatMode.RESTART);//动画重复模式
-        mScale.setRepeatCount(1);//动画重复次数
+       // mScale.setRepeatMode(Animation.RepeatMode.);//动画重复模式
+        mScale.setRepeatCount(0);//动画重复次数
         mScale.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart() {
+                Log.i("whc", "single scale onAnimationStart: ");
             }
 
             @Override
             public void onAnimationEnd() {
+                Log.i("whc", "single scale onAnimationEnd: ");
             }
 
             @Override
@@ -317,6 +442,23 @@ public class MarkerAnimationDemo extends Activity {
         return mScale;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * 创建旋转动画
@@ -420,7 +562,7 @@ public class MarkerAnimationDemo extends Activity {
     private Animation getAlphaAnimation() {
         AlphaAnimation mAlphaAnimation = new AlphaAnimation(1f, 0f, 1f);
         mAlphaAnimation.setDuration(3000);
-        mAlphaAnimation.setRepeatCount(1);
+        mAlphaAnimation.setRepeatCount(100);
         mAlphaAnimation.setRepeatMode(Animation.RepeatMode.RESTART);
         mAlphaAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
