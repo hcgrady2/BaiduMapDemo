@@ -382,6 +382,9 @@
 
         <activity android:name=".my_gaode_demo.MyGaodeMain"/>
 
+        <activity android:name=".BaiduMapAnim.BaiduAnimMain"/>
+
+
 
 
 

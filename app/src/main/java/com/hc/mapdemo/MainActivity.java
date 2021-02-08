@@ -63,6 +63,7 @@ import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.baidu.mapapi.utils.SpatialRelationUtil;
 import com.hc.mapdemo.BaiduLBSDemo.BMapApiDemoMain;
+import com.hc.mapdemo.BaiduMapAnim.BaiduAnimMain;
 import com.hc.mapdemo.Location.LocationMain;
 import com.hc.mapdemo.ONSDKDemo.ONSDKDemoMain;
 import com.hc.mapdemo.my_gaode_demo.MyGaodeMain;
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
     private static final String TAG = "MapStatus";
 
-    Button btn_baidu_lbs,btn_baidu_nav,btn_location_demo,btn_mygaode_demo;
+    Button btn_baidu_lbs,btn_baidu_nav,btn_location_demo,btn_mygaode_demo,btn_bd_anim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +121,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
 
         btn_mygaode_demo = findViewById(R.id.btn_mygaode_demo);
         btn_mygaode_demo.setOnClickListener(this);
+
+        btn_bd_anim  = findViewById(R.id.btn_bd_anim);
+        btn_bd_anim.setOnClickListener(this);
 
     }
 
@@ -207,6 +211,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
                 break;
 
 
+            case R.id.btn_bd_anim:
+                startActivity(new Intent(MainActivity.this, BaiduAnimMain.class));
+                break;
 
             default:
                     break;
